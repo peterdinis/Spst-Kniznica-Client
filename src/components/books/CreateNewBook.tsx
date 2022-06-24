@@ -1,4 +1,3 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { useState, FormEvent} from "react";
 import { toast } from "react-toastify";
 import "./Books.css";

@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./components/shared/Navbar";
+import { Route, Routes } from 'react-router-dom';
+import Homepage from './pages/Homepage';
+import Aboutpage from './pages/Aboutpage';
+import AllBooks from './pages/books/AllBooks';
+import CreateBook from './pages/books/CreateBook';
+import BookDetail from './pages/books/BookDetail';
+import AllCategories from './pages/categories/AllCategories';
+import CreateCategory from "./pages/categories/CreateCategory";
+import Registerpage from "./pages/auth/Registerpage";
+import Loginpage from "./pages/auth/Loginpage";
+import Profilepage from "./pages/auth/Profilepage";
+import BorrowPage from "./pages/books/borrow/BorrowPage";
 
-function App() {
+export function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/about" element={<Aboutpage />} />
+        <Route path="/books" element={<AllBooks />} />
+        <Route path="/createbook" element={<CreateBook />} />
+        <Route path="/book/:id" element={<BookDetail />} />
+        <Route path="/categories" element={<AllCategories />} />
+        <Route path="/createcategory" element={<CreateCategory />} />
+        <Route path="/register" element={<Registerpage />} />
+        <Route path="/login" element={<Loginpage  />} />
+        <Route path="/profile" element={<Profilepage />} />
+        <Route path="/borrow" element={<BorrowPage />} />
+      </Routes>
+    </>
   );
 }
 
