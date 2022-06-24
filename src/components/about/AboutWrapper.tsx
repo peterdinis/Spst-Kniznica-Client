@@ -1,4 +1,4 @@
-import Header from "libs/frontend/shared/src/lib/shared/Header"
+import Header from "../shared/Header"
 import { Paper } from "@material-ui/core";
 import "./AboutWrapper.css";
 

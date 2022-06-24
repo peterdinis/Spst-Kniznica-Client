@@ -1,4 +1,4 @@
-import DateTimePicker from "libs/frontend/shared/src/lib/shared/DateTimePicker";
+import DateTimePicker from "../shared/DateTimePicker";
 import {useNavigate} from "react-router-dom";
 
 function Hero() {

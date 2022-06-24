@@ -1,4 +1,4 @@
-import { useFn } from "@spst-bj/frontend/hooks";
+import { useFn } from "../../hooks/useFn";
 import "./Shared.css";
 
 interface IProps {
