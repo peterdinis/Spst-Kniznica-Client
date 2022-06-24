@@ -1,11 +1,11 @@
-import {useState} from "react";
-import Header from 'libs/frontend/shared/src/lib/shared/Header'
+import Header from '../shared/Header'
 import {useQuery} from "react-query";
-import {ICategory, queryClient} from "@spst-bj/frontend/api";
-import ScrollToTop from "libs/frontend/hooks/src/lib/useScroll";
-import * as api from "@spst-bj/frontend/api";
-import LoadingComponent from "libs/frontend/shared/src/lib/shared/LoadingComponent";
-import WarningComponent from "libs/frontend/shared/src/lib/shared/WarningComponent";
+import {ICategory} from "../../api/interfaces/ICategory";
+import ScrollToTop from "../../hooks/useScroll";
+import * as api from "../../api/queries/categoryQueries";
+import LoadingComponent from "../shared/LoadingComponent";
+import WarningComponent from "../shared/WarningComponent";
+import { queryClient } from '../../api/queryClient';
 
 
 function DisplayCategories() {

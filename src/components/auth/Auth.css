@@ -1,0 +1,21 @@
+.passwordBtn {
+    font-size: 1.2rem;
+}
+
+.baseButton {
+    background-color: red !important;
+    border-radius: 0.45rem;
+    padding: 0.45rem;
+    color: white !important;
+}
+
+.registerButton {
+    background-color: red !important;
+    border-radius: 0.45rem;
+    padding: 0.45rem;
+    color: white !important;
+}
+
+.break {
+    word-wrap: break-word !important;
+}
