@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useMutation } from "react-query";
-import * as api from "@spst-bj/frontend/api"
+import * as api from "../../api/mutations/categoryMutations"
 import "./Category.css";
 import {FormWrapper} from "./Categories.styled";
 import {TextField} from "@material-ui/core";
-import {queryClient} from "@spst-bj/frontend/api";
+import {queryClient} from "../../api/queryClient";
 import {toast} from "react-toastify";
-import Header from "libs/frontend/shared/src/lib/shared/Header";
-import BaseButton from "libs/frontend/shared/src/lib/shared/BaseButton";
+import Header from "../shared/Header";
+import BaseButton from "../shared/BaseButton";
 
 function CreateNewCategory() {
   const [name, setName] = useState("");

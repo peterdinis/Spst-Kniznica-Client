@@ -1,11 +1,11 @@
-import Header from "libs/frontend/shared/src/lib/shared/Header"
+import Header from "../shared/Header"
 import { useParams } from "react-router-dom";
 import { useQuery} from "react-query";
-import Missing from "libs/frontend/shared/src/lib/shared/Missing";
-import LoadingComponent from "libs/frontend/shared/src/lib/shared/LoadingComponent";
+import Missing from "../shared/Missing";
+import LoadingComponent from "../shared/LoadingComponent";
 import "./Books.css";
 import {Link} from "react-router-dom";
-import * as api from "@spst-bj/frontend/api";
+import * as api from "../../api/queries/bookQueries";
 
 function GetOneBook() {
   const { id } = useParams();

@@ -2,11 +2,11 @@ import { useState, FormEvent} from "react";
 import { toast } from "react-toastify";
 import "./Books.css";
 import {TextField} from "@material-ui/core";
-import Header from "libs/frontend/shared/src/lib/shared/Header";
-import BaseButton from "libs/frontend/shared/src/lib/shared/BaseButton";
+import Header from "../shared/Header";
+import BaseButton from "../shared/BaseButton";
 import {useMutation} from "react-query";
-import * as api from "@spst-bj/frontend/api";
-import {queryClient} from "@spst-bj/frontend/api";
+import * as api from "../../api/mutations/bookMutations";
+import {queryClient} from "../../api/queryClient";
 
 function CreateNewBook() {
   const [name, setName] = useState("");
