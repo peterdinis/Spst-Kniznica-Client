@@ -1,8 +1,8 @@
-import NewBook from '../../components/books/NewBook'
+import CreateNewBook from '../../components/books/CreateNewBook'
 
 function CreateBook() {
   return (
-      <NewBook />
+      <CreateNewBook />
   )
 }
 

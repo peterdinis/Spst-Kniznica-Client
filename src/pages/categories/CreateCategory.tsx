@@ -1,9 +1,9 @@
-import NewCategory from '../../components/categories/NewCategory'
+import CreateNewCategory from '../../components/categories/CreateNewCategory'
 
 function CreateCategory() {
   return (
     <>
-      <NewCategory />
+      <CreateNewCategory />
     </>
   )
 }

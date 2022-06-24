@@ -1,6 +1,6 @@
 import Hero from "../components/home/Hero"
 import Services from "../components/home/Services"
-import Footer from "libs/frontend/shared/src/lib/shared/Footer"
+import Footer from "../components/shared/Footer";
 
 function Homepage() {
   return (

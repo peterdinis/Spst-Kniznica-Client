@@ -1,9 +1,9 @@
-import FetchBooks from '../../components/books/FetchBooks'
+import DisplayAllBooks from '../../components/books/DisplayAllBooks'
 
 function AllBooks() {
   return (
     <>
-      <FetchBooks />
+      <DisplayAllBooks />
     </>
   )
 }

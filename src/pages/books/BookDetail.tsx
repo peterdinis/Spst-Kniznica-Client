@@ -1,8 +1,8 @@
-import OneBook from '../../components/books/OneBook'
+import GetOneBook from '../../components/books/GetOneBook'
 
 function BookDetail() {
   return (
-      <OneBook />
+      <GetOneBook />
   )
 }
 

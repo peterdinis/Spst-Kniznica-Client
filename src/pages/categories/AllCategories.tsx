@@ -1,9 +1,9 @@
-import FetchCategories from '../../components/categories/FetchCategories'
+import DisplayCategories from '../../components/categories/DisplayCategories'
 
 function AllCategories() {
   return (
     <>
-      <FetchCategories />
+      <DisplayCategories />
     </>
   )
 }
