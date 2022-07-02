@@ -1,18 +1,17 @@
 import { useState} from "react";
 import Header from "../shared/Header"
 import {useQuery} from "react-query";
-import {IBook} from "../../api/interfaces/IBook";
+import {IBook, SearchVal} from "../../api/interfaces/IBook";
 import ScrollToTop from "../../hooks/useScroll";
 import * as api from "../../api/queries/bookQueries";
 import LoadingComponent from "../shared/LoadingComponent";
 import WarningComponent from "../shared/WarningComponent";
 import {style} from "./imageStyleHelper";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { queryClient } from "../../api/queryClient";
 
-
 function DisplayAllBooks() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const { data, isLoading, isError } = useQuery("books", api.getBooks, {
     retry: 3,
     initialData: () => {
@@ -25,13 +24,12 @@ function DisplayAllBooks() {
   }
 
   if (isError) {
-    return <WarningComponent message="Lorem Ipsums" />
+    return <WarningComponent message="Nastala chyba" />
   }
 
   const valChange = (e: any) => {
     setSearchTerm(e.target.value);
   };
-  
   
   return (
     <>
@@ -47,7 +45,7 @@ function DisplayAllBooks() {
         <>
           {data &&
             data
-              .filter((val: any) => {
+              .filter((val: SearchVal) => {
                 if (searchTerm === "") {
                   return val;
                 } else if (

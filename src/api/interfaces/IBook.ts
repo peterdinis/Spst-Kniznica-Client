@@ -7,3 +7,5 @@ export interface IBook {
     year: number;
     status: string;
 } 
+
+export type SearchVal = Pick<IBook, 'name' |'author'>;
