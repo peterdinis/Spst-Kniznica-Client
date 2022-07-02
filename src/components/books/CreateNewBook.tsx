@@ -7,6 +7,7 @@ import BaseButton from "../shared/BaseButton";
 import {useMutation} from "react-query";
 import * as api from "../../api/mutations/bookMutations";
 import {queryClient} from "../../api/queryClient";
+import {IBook} from "../../api/interfaces/IBook";
 
 function CreateNewBook() {
   const [name, setName] = useState("");
@@ -28,7 +29,7 @@ function CreateNewBook() {
 
   const success = () => toast.success("Nová kniha bola pridaná");
 
-  const data = {
+  const data: IBook = {
     name,
     description,
     author,

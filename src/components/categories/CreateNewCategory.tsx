@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useMutation } from "react-query";
 import * as api from "../../api/mutations/categoryMutations"
 import "./Category.css";
@@ -8,6 +8,7 @@ import {queryClient} from "../../api/queryClient";
 import {toast} from "react-toastify";
 import Header from "../shared/Header";
 import BaseButton from "../shared/BaseButton";
+import { ICategory } from "../../api/interfaces/ICategory";
 
 function CreateNewCategory() {
   const [name, setName] = useState("");
@@ -24,23 +25,18 @@ function CreateNewCategory() {
 
   const infos = () => toast.success("Kategória bola úspešne vytvorená 👌");
 
-  const data = {
+  const data: ICategory = {
     name,
     description,
   };
 
-  const formHandler = (e: any) => {
+  const formHandler = (e: FormEvent) => {
     e.preventDefault();
     infos();
     mutation.mutate(data);
     setName("");
     setDescription("");
   };
-
-  if (!localStorage.getItem("admin")) {
-    <span className="font-bold text-xl">K tejto akcií nemáte prístup</span>;
-  }
-
   
   return (
     <FormWrapper>

@@ -24,7 +24,6 @@ function GetOneBook() {
                 data.image === undefined ||
                 !data.image ||
                 data.image === "string" ? (
-                  // eslint-disable-next-line jsx-a11y/img-redundant-alt
                   <img
                       alt="No Image"
                       className="lg:w-1/2 w-full object-cover object-center rounded-lg border drop-shadow-md"

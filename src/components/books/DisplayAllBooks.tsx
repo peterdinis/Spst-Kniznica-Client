@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState, ChangeEvent} from "react";
 import Header from "../shared/Header"
 import {useQuery} from "react-query";
 import {IBook, SearchVal} from "../../api/interfaces/IBook";
@@ -27,7 +27,7 @@ function DisplayAllBooks() {
     return <WarningComponent message="Nastala chyba" />
   }
 
-  const valChange = (e: any) => {
+  const valChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
   
@@ -45,6 +45,7 @@ function DisplayAllBooks() {
         <>
           {data &&
             data
+              // eslint-disable-next-line array-callback-return
               .filter((val: SearchVal) => {
                 if (searchTerm === "") {
                   return val;
