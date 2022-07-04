@@ -10,7 +10,6 @@ import CreateCategory from "./pages/categories/CreateCategory";
 import Registerpage from "./pages/auth/Registerpage";
 import Loginpage from "./pages/auth/Loginpage";
 import Profilepage from "./pages/auth/Profilepage";
-import AdminChat from "./pages/admin/AdminChat";
 
 export function App() {
 
@@ -28,7 +27,6 @@ export function App() {
         <Route path="/register" element={<Registerpage />} />
         <Route path="/login" element={<Loginpage  />} />
         <Route path="/profile" element={<Profilepage />} />
-        <Route path="/admin/chat" element={<AdminChat />} />
       </Routes>
     </>
   );
