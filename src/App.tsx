@@ -1,18 +1,10 @@
-import Navbar from "./components/shared/Navbar";
+import { Navbar } from './components/shared';
 import { Route, Routes } from 'react-router-dom';
-import Homepage from './pages/Homepage';
-import Aboutpage from './pages/Aboutpage';
-import AllBooks from './pages/books/AllBooks';
-import CreateBook from './pages/books/CreateBook';
-import BookDetail from './pages/books/BookDetail';
-import AllCategories from './pages/categories/AllCategories';
-import CreateCategory from "./pages/categories/CreateCategory";
-import Registerpage from "./pages/auth/Registerpage";
-import Loginpage from "./pages/auth/Loginpage";
-import Profilepage from "./pages/auth/Profilepage";
-import Adminloginpage from "./pages/admin/AdminLoginpage";
-import Adminregisterpage from "./pages/admin/AdminRegisterpage"
-import Adminprofilepage from "./pages/admin/AdminProfilepage";
+import {Homepage, Aboutpage} from "./pages/index";
+import { AllBooks, BookDetail, CreateNewBook } from "./pages/books";
+import {AllCategories, CreateCategory } from "./pages/categories";
+import {Registerpage, Loginpage, Profilepage} from "./pages/auth/index"
+import {AdminLoginpage, AdminRegisterpage, AdminProfilepage} from "./pages/admin/index";
 
 export function App() {
 
@@ -23,16 +15,16 @@ export function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<Aboutpage />} />
         <Route path="/books" element={<AllBooks />} />
-        <Route path="/createbook" element={<CreateBook />} />
+        <Route path="/createbook" element={<CreateNewBook />} />
         <Route path="/book/:id" element={<BookDetail />} />
         <Route path="/categories" element={<AllCategories />} />
         <Route path="/createcategory" element={<CreateCategory />} />
         <Route path="/register" element={<Registerpage />} />
         <Route path="/login" element={<Loginpage  />} />
         <Route path="/profile" element={<Profilepage />} />
-        <Route path="/admin/login" element={<Adminloginpage />} /> 
-        <Route path="/admin/register" element={<Adminregisterpage />} />
-        <Route path="/admin/profile" element={<Adminprofilepage />} />
+        <Route path="/admin/login" element={<AdminLoginpage />} /> 
+        <Route path="/admin/register" element={<AdminRegisterpage />} />
+        <Route path="/admin/profile" element={<AdminProfilepage />} />
 
       </Routes>
     </>
