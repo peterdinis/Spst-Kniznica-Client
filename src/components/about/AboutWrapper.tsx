@@ -15,7 +15,7 @@ function AboutWrapper() {
         </p>
         <p className="helperText">
           Applikácia používa tieto technológie: React(Frontend knižnica)
-          Nestjs(Backendový framework) Mysql(Databáza).
+          Nestjs(Backendový framework) Postgresql(Databáza).
         </p>
       </Paper>
     </>
