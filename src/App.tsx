@@ -5,6 +5,7 @@ import { AllBooks, BookDetail, CreateNewBook } from "./pages/books";
 import {AllCategories, CreateCategory } from "./pages/categories";
 import {Registerpage, Loginpage, Profilepage} from "./pages/auth/index"
 import {AdminLoginpage, AdminRegisterpage, AdminProfilepage} from "./pages/admin/index";
+import { BorrowingPage } from './pages/borrowing';
 
 export function App() {
 
@@ -25,7 +26,7 @@ export function App() {
         <Route path="/admin/login" element={<AdminLoginpage />} /> 
         <Route path="/admin/register" element={<AdminRegisterpage />} />
         <Route path="/admin/profile" element={<AdminProfilepage />} />
-
+        <Route path="/borrowing" element={<BorrowingPage />} />
       </Routes>
     </>
   );
