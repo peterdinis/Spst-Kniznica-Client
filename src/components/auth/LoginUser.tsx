@@ -7,7 +7,9 @@ function LoginUser() {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: "all"
+  });
 
   return (
     <>

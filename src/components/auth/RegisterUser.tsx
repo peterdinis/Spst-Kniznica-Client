@@ -1,39 +1,51 @@
-import { useForm } from "react-hook-form";
 import Header from "../shared/Header"
+import {useMutation} from "react-query";
+import * as api from "../../api/mutations/authMutations";
+import {useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
+import { FormEvent, useState, ChangeEvent } from "react";
+import {RegisterUserI} from "../../api/interfaces/IAuth";
 
 export default function RegisterUser() {
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  const navigate = useNavigate();
+
+  const mutation = useMutation(api.registerUser, {
+    onSuccess: () => {
+      toast.success("Registrácia bola úspešná");
+      navigate("/login");
+    },
+
+    onError: () => {
+      toast.error("Problém pri regístrácií");
+    }
+  });
+
+  const data: RegisterUserI = {
+    email,
+    password,
+    firstName,
+    lastName,
+  }
+
+  const registerUser = (e: FormEvent) => {
+    mutation.mutate(data);
+    setEmail("");
+    setPassword("");
+    setFirstName("");
+    setLastName("");
+  }
 
   return (
     <>
      <Header name="Registrácia" />
-      <form>
+      <form onSubmit={registerUser}>
         <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
         <div className="mb-4">
-            <label
-              className="block text-grey-darker text-sm font-bold mb-2"
-              htmlFor="username"
-            >
-              Name
-            </label>
-            <input
-              className="emailInput shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-              id="username"
-              type="text"
-              placeholder="Name"
-              required
-              /* value={name}
-              onChange={(e) => setName(e.target.value)} */
-              {...register("name", {
-                required: "Name is required"
-              })}
-            />
-          </div>
-          <div className="mb-4">
             <label
               className="block text-grey-darker text-sm font-bold mb-2"
               htmlFor="username"
@@ -42,13 +54,27 @@ export default function RegisterUser() {
             </label>
             <input
               className="emailInput shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-              id="username"
-              type="text"
+              id="email"
+              type="email"
               placeholder="Email"
-              required
-              {...register("email", {
-                required: "Email is required"
-              })}
+              value={email}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-grey-darker text-sm font-bold mb-2"
+              htmlFor="username"
+            >
+              Password
+            </label>
+            <input
+              className="emailInput shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+              id="password"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
             />
           </div>
           <div className="mb-6">
@@ -63,9 +89,6 @@ export default function RegisterUser() {
               id="password"
               type="password"
               placeholder="******************"
-              {...register("password", {
-                required: "Password is required"
-              })}
             />
           </div>
           <div>
