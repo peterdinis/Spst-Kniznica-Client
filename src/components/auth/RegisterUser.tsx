@@ -72,7 +72,7 @@ export default function RegisterUser() {
               className="emailInput shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
               id="password"
               type="password"
-              placeholder="Password"
+              placeholder="******************"
               value={password}
               onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
             />
@@ -82,13 +82,32 @@ export default function RegisterUser() {
               className="block text-grey-darker text-sm font-bold mb-2"
               htmlFor="password"
             >
-              Heslo
+              Meno
             </label>
             <input
               className="passwordInput shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3"
-              id="password"
-              type="password"
-              placeholder="******************"
+              id="Meno"
+              type="text"
+              placeholder="Meno"
+              value={firstName}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => setFirstName(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-6">
+            <label
+              className="block text-grey-darker text-sm font-bold mb-2"
+              htmlFor="password"
+            >
+              Priezvisko
+            </label>
+            <input
+              className="passwordInput shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3"
+              id="Priezvisko"
+              type="text"
+              placeholder="Priezvisko"
+              value={lastName}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => setLastName(e.target.value)}
             />
           </div>
           <div>

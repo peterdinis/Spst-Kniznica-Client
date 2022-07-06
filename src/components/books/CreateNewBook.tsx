@@ -1,4 +1,4 @@
-import { useState, FormEvent} from "react";
+import { useState, FormEvent, ChangeEvent} from "react";
 import { toast } from "react-toastify";
 import "./Books.css";
 import {TextField} from "@material-ui/core";
@@ -14,7 +14,7 @@ function CreateNewBook() {
   const [description, setDescription] = useState("");
   const [author, setAuthor] = useState("");
   const [image, setImage] = useState("");
-  const [year, setYear] = useState<number>(0);
+  const [year, setYear] = useState(0);
   const [status, setStatus] = useState("");
 
   const mutation = useMutation(api.addNewBook, {
@@ -59,35 +59,35 @@ function CreateNewBook() {
             className="bookForm"
             placeholder="Meno Knihy"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
           />
           <br />
           <TextField
             className="bookForm"
             placeholder="Popis knihy"
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)}
           />
           <br />
           <TextField
             className="bookForm"
             placeholder="Author"
             value={author}
-            onChange={(e) => setAuthor(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setAuthor(e.target.value)}
           />
           <br />
           <TextField
             className="bookForm"
             placeholder="Obrázok url"
             value={image}
-            onChange={(e) => setImage(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setImage(e.target.value)}
           />
           <br />
           <TextField
             className="bookForm"
             placeholder="Status knihy"
             value={status}
-            onChange={(e) => setStatus(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setStatus(e.target.value)}
           />
           <br />
           <TextField
