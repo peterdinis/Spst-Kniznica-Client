@@ -1,7 +1,7 @@
 import { useState, FormEvent, ChangeEvent} from "react";
-import { toast } from "react-toastify";
+import Checkbox from '@material-ui/core/Checkbox';
 import "./Books.css";
-import {TextField} from "@material-ui/core";
+import {TextField, Typography} from "@material-ui/core";
 import Header from "../shared/Header";
 import BaseButton from "../shared/BaseButton";
 import {useMutation} from "react-query";
@@ -14,7 +14,12 @@ function CreateNewBook() {
   const [author, setAuthor] = useState("");
   const [image, setImage] = useState("");
   const [year, setYear] = useState(0);
-  const [status, setStatus] = useState("");
+  const [pages, setPages] = useState(0);
+  const [avaiable, setAvaiable] = useState(true);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setAvaiable(event.target.checked);
+  };
 
   const mutation = useMutation(api.addNewBook);
   const data: IBook = {
@@ -22,8 +27,9 @@ function CreateNewBook() {
     description,
     author,
     image,
-    status,
-    year
+    year,
+    pages,
+    avaiable
   };
 
   const onCreateBook = (e: FormEvent) => {
@@ -33,8 +39,9 @@ function CreateNewBook() {
     setDescription("");
     setAuthor("");
     setImage("");
-    setStatus("");
+    setPages(0);
     setYear(0);
+    setAvaiable(false)
   };
 
   return (
@@ -72,19 +79,34 @@ function CreateNewBook() {
           <br />
           <TextField
             className="bookForm"
-            placeholder="Status knihy"
-            value={status}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => setStatus(e.target.value)}
-          />
-          <br />
-          <TextField
-            className="bookForm"
             placeholder="Rok vydania"
             value={year}
             type="number"
             onChange={(e: any) => setYear(e.target.value)}
           />
+
           <br />
+
+          <TextField
+            className="bookForm"
+            placeholder="Rok vydania"
+            value={pages}
+            type="number"
+            onChange={(e: any) => setPages(e.target.value)}
+          />
+          
+          <br />
+          <div className="mt-6">
+          <Typography>Kniha je: Dostupná / Nedostupná</Typography>
+          <Checkbox
+            className="bookForm"
+            placeholder="Rok vydania"
+            value={avaiable}
+            onChange={handleChange}
+          />
+          
+          <br />
+          </div>
           <BaseButton type="submit" name="Vytvor novú knihu" />
         </form>
       </div>

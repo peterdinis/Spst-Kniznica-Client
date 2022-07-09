@@ -5,7 +5,8 @@ export interface IBook {
     author: string;
     image: string;
     year: number;
-    status: string;
+    pages: number;
+    avaiable: boolean;
 } 
 
 export type SearchVal = Pick<IBook, 'name' |'author'>;
