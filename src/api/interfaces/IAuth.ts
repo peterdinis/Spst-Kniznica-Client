@@ -4,8 +4,3 @@ export interface RegisterUserI {
     firstName: string;
     lastName: string;
 }
-
-export interface LoginUserI {
-    email: string;
-    passsword: string;
-}
