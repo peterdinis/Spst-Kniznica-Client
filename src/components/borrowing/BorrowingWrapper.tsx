@@ -1,8 +1,8 @@
-import React from 'react'
+import Header from "../shared/Header"
 
 function BorrowingWrapper() {
   return (
-    <div>BorrowingWrapper</div>
+    <Header name="Detail o objednávke" />
   )
 }
 

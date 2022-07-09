@@ -26,7 +26,7 @@ export function App() {
         <Route path="/admin/login" element={<AdminLoginpage />} /> 
         <Route path="/admin/register" element={<AdminRegisterpage />} />
         <Route path="/admin/profile" element={<AdminProfilepage />} />
-        <Route path="/borrowing" element={<BorrowingPage />} />
+        <Route path="/borrow" element={<BorrowingPage />} />
       </Routes>
     </>
   );

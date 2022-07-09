@@ -10,7 +10,6 @@ import * as api from "../../api/queries/bookQueries";
 function GetOneBook() {
   const { id } = useParams();
   const { data } = useQuery(["bookDetail", id], () => api.getOneBook(id));
-  console.log(data);
   return (
     <>
       <Header name="Detail knihy" />

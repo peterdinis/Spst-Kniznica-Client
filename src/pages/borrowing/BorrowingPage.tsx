@@ -1,4 +1,3 @@
-import React from 'react'
 import BorrowingWrapper from '../../components/borrowing/BorrowingWrapper'
 
 function BorrowingPage() {
