@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom';
+import {logoutUser} from "../../api/mutations/authMutations";
 
 function Profile() {
   const navigate = useNavigate();
-  const onLogout = () => {
-    navigate('/login');
+  const onLogout = async () => {
+    await logoutUser();
+    navigate("/login");
   };
 
   return (
@@ -24,7 +26,7 @@ function Profile() {
               </h1>
               <button
                 className="mt-2 bg-red-700 text-white rounded-sm p-3"
-                /* onClick={onLogout} */
+                onClick={onLogout}
               >
                 Odlhásenie
               </button>
