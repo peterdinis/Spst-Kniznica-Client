@@ -1,11 +1,11 @@
-export interface RegisterUserI {
+export interface RegisterAdminI {
     email: string;
     password: string;
     firstName: string;
     lastName: string;
 }
 
-export interface LoginUserI {
+export interface LoginAdminI {
     email: string;
     password: string;
 }
