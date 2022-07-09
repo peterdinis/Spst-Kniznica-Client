@@ -12,7 +12,9 @@ export const registerUser = async(dataI: RegisterUserI) => {
 }
 
 export const loginUser = async(dataI: LoginUserI) => {
-    
+    const {data} = await api.post("/users/login", dataI);
+    await storage.setToken(data.token);
+    return data;
 }
 
 

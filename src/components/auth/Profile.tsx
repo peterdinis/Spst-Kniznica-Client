@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import {logoutUser} from "../../api/mutations/authMutations";
+import { useQuery } from "react-query";
+import * as api from "../../api/queries/authQueries";
 
 function Profile() {
   const navigate = useNavigate();
@@ -7,6 +9,10 @@ function Profile() {
     await logoutUser();
     navigate("/login");
   };
+
+  const {data} = useQuery("profile", () => api.myProfile);
+
+  console.log(data);
 
   return (
     /* currentUser.uid */
@@ -22,7 +28,7 @@ function Profile() {
                 />
               </div>
               <h1 className="text-gray-900 font-bold text-xl leading-8 my-1">
-              ddddddd
+              Welcome 
               </h1>
               <button
                 className="mt-2 bg-red-700 text-white rounded-sm p-3"
