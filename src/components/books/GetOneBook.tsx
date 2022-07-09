@@ -75,28 +75,17 @@ function GetOneBook() {
                   </div>
                 ) : (
                   <>
-                    {data.status === "Dostupná" ? (
+                    {data.avaiable === true ? (
                       <p className="text-2xl mt-3 font-light leading-relaxed  mb-4 text-green-800">
-                        <span className="font-bold">Status</span>: {data.status}
+                        <span className="font-bold">Kniha je dostupná</span>
                       </p>
                     ) : (
                       <p className="text-2xl mt-3 font-light leading-relaxed  mb-4 text-red-800">
-                        <span className="font-bold">Status</span>: {data.status}
+                        <span className="font-bold">Kniha nie je dostupná</span>
                       </p>
                     )}
                   </>
                 )}
-
-                {data.isbn === null || data.isbn === "" ? (
-                  <div>
-                    <Missing name="Isbn chýba" />
-                  </div>
-                ) : (
-                  <p className="text-2xl mt-3 font-light leading-relaxed  mb-4 text-gray-800">
-                    <span className="font-bold">Isbn</span>: {data.isbn}
-                  </p>
-                )}
-
                 {data.year === null || data.year === "" ? (
                   <div>
                     <Missing name="Rok vydania chýba" />
@@ -107,7 +96,7 @@ function GetOneBook() {
                   </p>
                 )}
                 <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5"></div>
-                {data.status === "Dostupná" ? (
+                {data.avaiable === true ? (
                   <div className="mt-6">
                     <button className="bg-blue-200 text-white-500 text-center py-2 px-4 rounded">
                       <Link to="/borrow">Požičaj Knihu</Link>

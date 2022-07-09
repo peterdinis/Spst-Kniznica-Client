@@ -17,7 +17,6 @@ export default function RegisterUser() {
   const mutation = useMutation(api.registerUser, {
     onSuccess: () => {
       toast.success("Registrácia bola úspešná");
-      navigate("/login");
     },
 
     onError: () => {
@@ -33,11 +32,13 @@ export default function RegisterUser() {
   }
 
   const registerUser = (e: FormEvent) => {
+    e.preventDefault();
     mutation.mutate(data);
     setEmail("");
     setPassword("");
     setFirstName("");
     setLastName("");
+    navigate("/login");
   }
 
   return (
