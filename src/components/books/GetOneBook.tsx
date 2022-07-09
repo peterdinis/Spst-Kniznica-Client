@@ -10,7 +10,7 @@ import * as api from "../../api/queries/bookQueries";
 function GetOneBook() {
   const { id } = useParams();
   const { data } = useQuery(["bookDetail", id], () => api.getOneBook(id));
-
+  console.log(data);
   return (
     <>
       <Header name="Detail knihy" />
@@ -74,7 +74,6 @@ function GetOneBook() {
                     <Missing name="Status chýba" />
                   </div>
                 ) : (
-                  // eslint-disable-next-line react/jsx-no-useless-fragment
                   <>
                     {data.status === "Dostupná" ? (
                       <p className="text-2xl mt-3 font-light leading-relaxed  mb-4 text-green-800">
@@ -115,9 +114,14 @@ function GetOneBook() {
                     </button>
                   </div>
                 ) : (
+                  <>
                   <span className="text-red-800 font-bold text-2xl">
-                    Pre požičanie knihy musíte byť prihlasení
-                  </span>
+                    Pre požičanie knihy musíte byť prihlasení 
+                  </span><br />
+                   <div className="mt-4 font-bold text-2xl">
+                   <Link to="/register">Prihlásenie</Link>
+                   </div>
+                  </>
                 )}
               </div>
             </div>
