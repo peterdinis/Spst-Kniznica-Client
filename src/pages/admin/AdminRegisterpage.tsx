@@ -1,8 +1,10 @@
-import React from 'react'
+import AdminRegisterForm from '../../components/admin/AdminRegisterForm'
 
 function AdminRegisterpage() {
   return (
-    <div>AdminRegisterpage</div>
+    <>
+      <AdminRegisterForm />
+    </>
   )
 }
 

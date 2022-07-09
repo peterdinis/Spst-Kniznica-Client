@@ -4,8 +4,6 @@ import * as api from "../../api/mutations/categoryMutations"
 import "./Category.css";
 import {FormWrapper} from "./Categories.styled";
 import {TextField} from "@material-ui/core";
-import {queryClient} from "../../api/queryClient";
-import {toast} from "react-toastify";
 import Header from "../shared/Header";
 import BaseButton from "../shared/BaseButton";
 import { ICategory } from "../../api/interfaces/ICategory";
@@ -13,17 +11,8 @@ import { ICategory } from "../../api/interfaces/ICategory";
 function CreateNewCategory() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const mutation = useMutation(api.addNewCategory, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("categories");
-    },
+  const mutation = useMutation(api.addNewCategory);
 
-    onError: () => {
-      toast.error("Problém pri tvorbe kategórie 😔 ");
-    },
-  });
-
-  const infos = () => toast.success("Kategória bola úspešne vytvorená 👌");
 
   const data: ICategory = {
     name,
@@ -32,7 +21,6 @@ function CreateNewCategory() {
 
   const formHandler = (e: FormEvent) => {
     e.preventDefault();
-    infos();
     mutation.mutate(data);
     setName("");
     setDescription("");

@@ -1,8 +1,10 @@
-import React from 'react'
+import AdminLoginForm from '../../components/admin/AdminLoginForm'
 
 function AdminLoginpage() {
   return (
-    <div>AdminLoginpage</div>
+    <>
+      <AdminLoginForm />
+    </>
   )
 }
 

@@ -6,7 +6,6 @@ import Header from "../shared/Header";
 import BaseButton from "../shared/BaseButton";
 import {useMutation} from "react-query";
 import * as api from "../../api/mutations/bookMutations";
-import {queryClient} from "../../api/queryClient";
 import {IBook} from "../../api/interfaces/IBook";
 
 function CreateNewBook() {
@@ -17,18 +16,7 @@ function CreateNewBook() {
   const [year, setYear] = useState(0);
   const [status, setStatus] = useState("");
 
-  const mutation = useMutation(api.addNewBook, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("books");
-    },
-
-    onError: () => {
-      toast.error("Problém pri tvorbe knihy 😔 ");
-    },
-  });
-
-  const success = () => toast.success("Nová kniha bola pridaná");
-
+  const mutation = useMutation(api.addNewBook);
   const data: IBook = {
     name,
     description,
@@ -41,7 +29,6 @@ function CreateNewBook() {
   const onCreateBook = (e: FormEvent) => {
     e.preventDefault();
     mutation.mutate(data);
-    success();
     setName("");
     setDescription("");
     setAuthor("");

@@ -1,8 +1,8 @@
-import React from 'react'
+import { AdminProfile } from '../../components/admin'
 
 function AdminProfilepage() {
   return (
-    <div>AdminProfilepage</div>
+    <AdminProfile />
   )
 }
 
