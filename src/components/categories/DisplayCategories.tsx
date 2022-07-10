@@ -1,5 +1,5 @@
 import Header from '../shared/Header'
-import {useQuery} from "react-query";
+import {useQuery, useIsFetching} from "react-query";
 import {ICategory} from "../../api/interfaces/ICategory";
 import ScrollToTop from "../../hooks/useScroll";
 import * as api from "../../api/queries/categoryQueries";
@@ -9,6 +9,7 @@ import { queryClient } from '../../api/queryClient';
 
 
 function DisplayCategories() {
+  const isFetching = useIsFetching();
     const { data, isLoading, isError } = useQuery(
         "categories",
         api.getCategories,
@@ -26,6 +27,10 @@ function DisplayCategories() {
     
       if (isError) {
         return <WarningComponent message="Lorem ipsum" />;
+      }
+
+      if(isFetching) {
+        return <LoadingComponent message="Načítavam dáta" />;
       }
       
       return (

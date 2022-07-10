@@ -1,6 +1,6 @@
 import { useState, ChangeEvent} from "react";
 import Header from "../shared/Header"
-import {useQuery} from "react-query";
+import {useQuery, useIsFetching} from "react-query";
 import {IBook, SearchVal} from "../../api/interfaces/IBook";
 import ScrollToTop from "../../hooks/useScroll";
 import * as api from "../../api/queries/bookQueries";
@@ -11,6 +11,7 @@ import { Link} from "react-router-dom";
 import { queryClient } from "../../api/queryClient";
 
 function DisplayAllBooks() {
+  const isFetching = useIsFetching()
   const [searchTerm, setSearchTerm] = useState<string>("");
   const { data, isLoading, isError } = useQuery("books", api.getBooks, {
     retry: 3,
@@ -25,6 +26,10 @@ function DisplayAllBooks() {
 
   if (isError) {
     return <WarningComponent message="Nastala chyba" />
+  }
+
+  if(isFetching) {
+    return <LoadingComponent message="Načítavam dáta" />;
   }
 
   const valChange = (e: ChangeEvent<HTMLInputElement>) => {
