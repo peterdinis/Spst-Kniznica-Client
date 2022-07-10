@@ -13,7 +13,7 @@ import {useStyles} from "./styles";
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
-export default function TemporaryDrawer() {
+export default function InfoComponent() {
   const classes = useStyles();
   const [state, setState] = useState({
     top: false,
