@@ -1,14 +1,18 @@
 import Header from '../shared/Header'
-import {useQuery, useIsFetching} from "react-query";
+import {useQuery, useIsFetching, useQueryErrorResetBoundary} from "react-query";
 import {ICategory} from "../../api/interfaces/ICategory";
 import ScrollToTop from "../../hooks/useScroll";
 import * as api from "../../api/queries/categoryQueries";
 import LoadingComponent from "../shared/LoadingComponent";
 import WarningComponent from "../shared/WarningComponent";
 import { queryClient } from '../../api/queryClient';
+import { ErrorBoundary } from 'react-error-boundary'
+import { Button } from "@material-ui/core";
+import FallbackRender from '../shared/FallbackRender';
 
 
 function DisplayCategories() {
+  const { reset } = useQueryErrorResetBoundary();
   const isFetching = useIsFetching();
     const { data, isLoading, isError } = useQuery(
         "categories",
@@ -35,7 +39,14 @@ function DisplayCategories() {
       
       return (
         <>
-            <Header name="Všetky kategórie" />
+          <ErrorBoundary   onReset={reset}
+       fallbackRender={({ resetErrorBoundary }) => (
+         <>
+            <FallbackRender error="Chyba pri načítavaní kategórií" />
+           <Button onClick={() => resetErrorBoundary()}>Try again</Button>
+         </>
+       )}>
+          <Header name="Všetky kategórie" />
             <div className="flex justify-center align-top">
             <input
               className="control text-gray-600 mt-4 dark:text-gray-400 focus:outline-none focus:border focus:border-indigo-700 dark:focus:border-indigo-700 dark:border-gray-700 dark:bg-gray-800 bg-white font-normal w-64 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow"
@@ -63,6 +74,7 @@ function DisplayCategories() {
               })}
           </div>
           <ScrollToTop />
+          </ErrorBoundary>
         </>
       )
 }

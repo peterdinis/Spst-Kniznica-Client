@@ -1,9 +1,9 @@
-import React from 'react'
-
-function FallbackRender() {
-  return (
-    <div>FallbackRender</div>
-  )
+interface IProps {
+  error: string;
 }
 
-export default FallbackRender
+function FallbackRender({ error }: IProps) {
+  return <p className="mt-4 text-2xl font-bold">{error}</p>;
+}
+
+export default FallbackRender;
