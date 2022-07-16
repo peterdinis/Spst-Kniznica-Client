@@ -1,5 +1,7 @@
-import { Given} from "cypress-cucumber-preprocessor/steps";
+import {Given, When, Then} from "cypress-cucumber-preprocessor/steps"
 
-Given("I Navigate to the register page", () => {
-  cy.visit("/register");
-});
+Given('I am in the Swag Labs login page',()=>{
+
+    cy.visit("https://www.saucedemo.com/index.html");
+
+})
