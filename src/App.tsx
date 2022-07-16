@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import {Homepage, Aboutpage} from "./pages/index";
 import { AllBooks, BookDetail, CreateNewBook } from "./pages/books";
 import {AllCategories, CreateCategory } from "./pages/categories";
-import {Registerpage, Loginpage, Profilepage} from "./pages/auth/index"
+import {Registerpage, Loginpage, Profilepage} from "./pages/students/index"
 import {AdminLoginpage, AdminRegisterpage, AdminProfilepage} from "./pages/admin/index";
 import { BorrowingPage } from './pages/borrowing';
 
