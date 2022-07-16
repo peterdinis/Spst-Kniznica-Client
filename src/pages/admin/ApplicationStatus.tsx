@@ -1,8 +1,10 @@
-import React from 'react'
+import { ApplicationMonitoring } from '../../components/admin'
 
 function ApplicationStatus() {
   return (
-    <div>ApplicationStatus</div>
+    <>
+        <ApplicationMonitoring />
+    </>
   )
 }
 

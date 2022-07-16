@@ -1,13 +1,11 @@
 import { Navbar } from './components/shared';
 import { Route, Routes } from 'react-router-dom';
-import {Homepage, Aboutpage} from "./pages/index";
+import {Homepage, Aboutpage, AdminChat} from "./pages/index";
 import { AllBooks, BookDetail, CreateNewBook } from "./pages/books";
 import {AllCategories, CreateCategory } from "./pages/categories";
 import {Registerpage, Loginpage, Profilepage} from "./pages/students/index"
-import {AdminLoginpage, AdminRegisterpage, AdminProfilepage} from "./pages/admin/index";
+import {AdminLoginpage, AdminRegisterpage, AdminProfilepage, ApplicationStatus} from "./pages/admin/index";
 import { BorrowingPage } from './pages/borrowing';
-import AdminChat from './pages/AdminChat';
-
 export function App() {
 
   return (
@@ -27,6 +25,7 @@ export function App() {
         <Route path="/admin/login" element={<AdminLoginpage />} /> 
         <Route path="/admin/register" element={<AdminRegisterpage />} />
         <Route path="/admin/profile" element={<AdminProfilepage />} />
+        <Route path="/admin/app/status" element={<ApplicationStatus />} />
         <Route path="/admin/chat" element={<AdminChat />} />
         <Route path="/borrow" element={<BorrowingPage />} />
       </Routes>
