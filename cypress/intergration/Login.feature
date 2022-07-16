@@ -1,3 +1,3 @@
-Feature Student Login To Application
-    
-    Scenario Student try to login to app
+Feature: Student try to login to our application
+
+    Scenario: Student after registration trying to login to our application
