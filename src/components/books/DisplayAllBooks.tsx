@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent} from "react";
 import Header from "../shared/Header";
 import {
   useQuery,
