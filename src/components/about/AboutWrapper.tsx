@@ -17,6 +17,9 @@ function AboutWrapper() {
           Applikácia používa tieto technológie: React(Frontend knižnica)
           Nestjs(Backendový framework) Postgresql(Databáza).
         </p>
+        <p className="helperText">
+          Možnosť spýtať sa admina: <a className="text-red-800" href="/admin/chat">TU</a>
+        </p>
       </Paper>
     </>
   )
