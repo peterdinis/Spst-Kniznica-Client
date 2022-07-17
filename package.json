@@ -80,6 +80,6 @@
     "tailwindcss": "^3.1.4"
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
-  }
+    "step_definitions": "cypress/integration/features/step_definitions/**/"
+ }
 }
