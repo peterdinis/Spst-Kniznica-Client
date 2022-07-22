@@ -12,7 +12,6 @@ import LoadingComponent from "../shared/LoadingComponent";
 import WarningComponent from "../shared/WarningComponent";
 import { style } from "./imageStyleHelper";
 import { Link } from "react-router-dom";
-import { queryClient } from "../../api/queryClient";
 import { ErrorBoundary } from "react-error-boundary";
 import { Button } from "@material-ui/core";
 import FallbackRender from "../shared/FallbackRender";
@@ -21,12 +20,7 @@ function DisplayAllBooks() {
   const isFetching = useIsFetching();
   const { reset } = useQueryErrorResetBoundary();
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const { data, isLoading, isError } = useQuery("books", api.getBooks, {
-    retry: 3,
-    initialData: () => {
-      return queryClient.getQueryData("books");
-    },
-  });
+  const { data, isLoading, isError } = useQuery("books", api.getBooks);
 
   if (isLoading) {
     return <LoadingComponent message="Načítavam" />;

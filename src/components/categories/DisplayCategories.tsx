@@ -5,7 +5,6 @@ import ScrollToTop from "../../hooks/useScroll";
 import * as api from "../../api/queries/categoryQueries";
 import LoadingComponent from "../shared/LoadingComponent";
 import WarningComponent from "../shared/WarningComponent";
-import { queryClient } from '../../api/queryClient';
 import { ErrorBoundary } from 'react-error-boundary'
 import { Button } from "@material-ui/core";
 import FallbackRender from '../shared/FallbackRender';
@@ -16,13 +15,7 @@ function DisplayCategories() {
   const isFetching = useIsFetching();
     const { data, isLoading, isError } = useQuery(
         "categories",
-        api.getCategories,
-        {
-          retry: 3,
-          initialData: () => {
-            return queryClient.getQueryData("categories");
-          },
-        }
+        api.getCategories
       );
     
       if (isLoading) {
