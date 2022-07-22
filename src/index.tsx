@@ -8,7 +8,8 @@ import { QueryClientProvider } from 'react-query';
 import { queryClient } from './api/queryClient';
 import { ToastContainer } from 'react-toastify';
 import { ReactQueryDevtools } from 'react-query/devtools'
-
+import "react-resizable/css/styles.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
