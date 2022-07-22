@@ -6,6 +6,9 @@ import {AllCategories, CreateCategory } from "./pages/categories";
 import {Registerpage, Loginpage, Profilepage} from "./pages/students/index"
 import {AdminLoginpage, AdminRegisterpage, AdminProfilepage, ApplicationStatus} from "./pages/admin/index";
 import { BorrowingPage } from './pages/borrowing';
+import TeacherLoginPage from './pages/teachers/TeacherLoginPage';
+import TeacherProfile from './pages/teachers/TeacherProfile';
+import TeacherRegisterPage from './pages/teachers/TeacherRegisterPage';
 export function App() {
 
   return (
@@ -28,6 +31,9 @@ export function App() {
         <Route path="/admin/app/status" element={<ApplicationStatus />} />
         <Route path="/admin/chat" element={<AdminChat />} />
         <Route path="/borrow" element={<BorrowingPage />} />
+        <Route path="/teacher/login" element={<TeacherLoginPage/> } />
+        <Route path="/teacher/register" element={<TeacherRegisterPage/>} />
+        <Route path="/teacher/profile" element={<TeacherProfile/>} />
       </Routes>
     </>
   );

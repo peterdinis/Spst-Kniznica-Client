@@ -52,10 +52,19 @@ export default function Navbar() {
         </li>
         <li className="border-t md:border-none">
           <a
-            href="/register"
+            href="/student/login"
             className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold"
           >
-            Registrácia
+            Žiak Prihlásenie
+          </a>
+        </li>
+
+        <li className="border-t md:border-none">
+          <a
+            href="/teacher/login"
+            className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold"
+          >
+            Učitel Prihlásenie
           </a>
         </li>
       </ul>
