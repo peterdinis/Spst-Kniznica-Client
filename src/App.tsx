@@ -19,9 +19,9 @@ export function App() {
         <Route path="/book/:id" element={<BookDetail />} />
         <Route path="/categories" element={<AllCategories />} />
         <Route path="/createcategory" element={<CreateCategory />} />
-        <Route path="/register" element={<Registerpage />} />
-        <Route path="/login" element={<Loginpage  />} />
-        <Route path="/profile" element={<Profilepage />} />
+        <Route path="/student/register" element={<Registerpage />} />
+        <Route path="/student/login" element={<Loginpage  />} />
+        <Route path="/student/profile" element={<Profilepage />} />
         <Route path="/admin/login" element={<AdminLoginpage />} /> 
         <Route path="/admin/register" element={<AdminRegisterpage />} />
         <Route path="/admin/profile" element={<AdminProfilepage />} />

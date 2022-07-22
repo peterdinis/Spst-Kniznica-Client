@@ -79,7 +79,7 @@ function DisplayAllBooks() {
                   return (
                     <>
                       <div key={item.id} className="px-4 py-4 mt-4 bg-white">
-                        <a href="#">
+                        <span>
                           {item.image === "" ||
                           item.image === null ||
                           item.image === undefined ||
@@ -98,7 +98,7 @@ function DisplayAllBooks() {
                               src={item.image}
                             />
                           )}
-                        </a>
+                        </span>
                         <h3 className="text-2xl text-center text-gray-800">
                           {item.name} - {item.author}
                         </h3>
