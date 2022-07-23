@@ -3,7 +3,7 @@ import { useMutation } from "react-query";
 import * as api from "../../api/mutations/categoryMutations"
 import "./Category.css";
 import {FormWrapper} from "./Categories.styled";
-import {TextField} from "@material-ui/core";
+import {TextField} from "@mui/material";
 import Header from "../shared/Header";
 import BaseButton from "../shared/BaseButton";
 import { ICategory } from "../../api/interfaces/ICategory";

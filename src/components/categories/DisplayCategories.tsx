@@ -6,7 +6,7 @@ import * as api from "../../api/queries/categoryQueries";
 import LoadingComponent from "../shared/LoadingComponent";
 import WarningComponent from "../shared/WarningComponent";
 import { ErrorBoundary } from 'react-error-boundary'
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 import FallbackRender from '../shared/FallbackRender';
 
 

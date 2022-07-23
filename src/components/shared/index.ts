@@ -1,6 +1,5 @@
 import React from "react";
 
-export const CustomInput = React.lazy(() =>import("./books/CustomInput"));
 export const BaseButton = React.lazy(() => import("./BaseButton"));
 export const DateTimePicker = React.lazy(() => import("./DateTimePicker"))
 export const Footer = React.lazy(() => import("./Footer"));
