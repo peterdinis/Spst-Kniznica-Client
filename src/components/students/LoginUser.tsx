@@ -31,7 +31,7 @@ function LoginUser() {
     mutation.mutate(data);
     setEmail("");
     setPassword("");
-    navigate("/profile");
+    navigate("/student/profile");
   }
 
   return (
@@ -80,7 +80,7 @@ function LoginUser() {
             <div>
               <a
                 className="mt-4 inline-block align-baseline font-bold text-2xl text-blue hover:text-blue-darker"
-                href="/register"
+                href="/student/register"
               >
                 Registrácia
               </a>

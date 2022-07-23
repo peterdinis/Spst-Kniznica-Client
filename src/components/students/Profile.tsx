@@ -7,11 +7,10 @@ function Profile() {
   const navigate = useNavigate();
   const onLogout = async () => {
     await logoutUser();
-    navigate("/login");
+    navigate("/student/login");
   };
 
-  const data = useQuery("profile", () => api.myProfile);
-  console.log(data);
+  console.log(localStorage.getItem("user"));
   return (
     <div className="container mx-auto my-5 p-5">
         <div className="md:flex no-wrap md:-mx-2 ">

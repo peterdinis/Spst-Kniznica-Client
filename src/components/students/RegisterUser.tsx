@@ -38,7 +38,7 @@ export default function RegisterUser() {
     setPassword("");
     setFirstName("");
     setLastName("");
-    navigate("/login");
+    navigate("/student/login");
   }
 
   return (
