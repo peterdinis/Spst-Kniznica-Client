@@ -6,9 +6,7 @@ import {AllCategories, CreateCategory } from "./pages/categories";
 import {Registerpage, Loginpage, Profilepage} from "./pages/students/index"
 import {AdminLoginpage, AdminRegisterpage, AdminProfilepage, ApplicationStatus} from "./pages/admin/index";
 import { BorrowingPage } from './pages/borrowing';
-import TeacherLoginPage from './pages/teachers/TeacherLoginPage';
-import TeacherProfile from './pages/teachers/TeacherProfile';
-import TeacherRegisterPage from './pages/teachers/TeacherRegisterPage';
+import {TeacherLoginPage, TeacherRegisterPage, TeacherProfile} from "./pages/teachers"
 export function App() {
 
   return (

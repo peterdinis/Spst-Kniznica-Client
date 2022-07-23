@@ -1,8 +1,10 @@
-import React from 'react'
+import { Header } from '../shared'
 
 function AdminRegisterForm() {
   return (
-    <div>AdminRegisterForm</div>
+    <>
+      <Header name="Admin Registrácia" />
+    </>
   )
 }
 

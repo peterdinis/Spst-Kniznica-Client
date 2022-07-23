@@ -1,8 +1,11 @@
 import React from 'react'
+import { TeacherRegisterForm } from '../../components/teachers'
 
 function TeacherRegisterPage() {
   return (
-    <div>TeacherRegisterPage</div>
+    <>
+      <TeacherRegisterForm />
+    </>
   )
 }
 
