@@ -1,7 +1,9 @@
-import React from 'react'
+import TeacherLoginForm from '../../components/teachers/TeacherLoginForm'
 
 export default function TeacherLoginPage() {
   return (
-    <div>TeacherLoginPage</div>
+    <>
+      <TeacherLoginForm />
+    </>
   )
 }

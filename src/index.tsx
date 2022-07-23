@@ -1,4 +1,4 @@
-import {Fragment} from 'react';
+import { StrictMode} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -15,8 +15,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  /* TODO: Later add strict.mode back after switch to mui 5 */
-  <Fragment>
+  <StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
           <App />
@@ -24,7 +23,7 @@ root.render(
         <ToastContainer />
       </QueryClientProvider>
     </BrowserRouter>
-  </Fragment>
+  </StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
