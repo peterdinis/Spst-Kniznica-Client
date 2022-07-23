@@ -13,7 +13,7 @@ import WarningComponent from "../shared/WarningComponent";
 import { style } from "./imageStyleHelper";
 import { Link } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
-import { Button } from "@material-ui/core";
+import Button from '@mui/material/Button';
 import FallbackRender from "../shared/FallbackRender";
 
 function DisplayAllBooks() {

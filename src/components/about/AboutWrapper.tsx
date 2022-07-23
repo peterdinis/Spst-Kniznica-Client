@@ -1,5 +1,5 @@
 import Header from "../shared/Header"
-import { Paper } from "@material-ui/core";
+import Paper from '@mui/material/Paper';
 import "./AboutWrapper.css";
 
 function AboutWrapper() {
