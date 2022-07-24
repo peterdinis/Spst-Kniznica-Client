@@ -3,8 +3,9 @@ import {useMutation} from "react-query";
 import * as api from "../../api/mutations/authMutations";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
-import { ChangeEvent } from "react";
 import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from '@hookform/resolvers/yup';
 
 type FormData = {
   email: string,
@@ -13,8 +14,18 @@ type FormData = {
   lastName: string,
 }
 
+const schema = yup.object({
+  email: yup.string().required(),
+  password: yup.string().required(),
+  firstName: yup.string().required(),
+  lastName: yup.string().required(),
+
+}).required();
+
 export default function RegisterUser() {
-  const { register, handleSubmit} = useForm<FormData>();
+  const { register, handleSubmit} = useForm<FormData>({
+    resolver: yupResolver(schema)
+  });
 
   const navigate = useNavigate();
 
@@ -47,8 +58,9 @@ export default function RegisterUser() {
               id="email"
               type="email"
               placeholder="Email"
-              value={email}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+              {...register("email", {
+                required: true
+              })}
             />
           </div>
           <div className="mb-4">
@@ -63,8 +75,9 @@ export default function RegisterUser() {
               id="password"
               type="password"
               placeholder="******************"
-              value={password}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+              {...register("password", {
+                required: true
+              })}
             />
           </div>
           <div className="mb-6">
@@ -79,8 +92,9 @@ export default function RegisterUser() {
               id="Meno"
               type="text"
               placeholder="Meno"
-              value={firstName}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => setFirstName(e.target.value)}
+              {...register("firstName", {
+                required: true
+              })}
             />
           </div>
 
@@ -96,8 +110,9 @@ export default function RegisterUser() {
               id="Priezvisko"
               type="text"
               placeholder="Priezvisko"
-              value={lastName}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => setLastName(e.target.value)}
+              {...register("lastName", {
+                required: true
+              })}
             />
           </div>
           <div>
