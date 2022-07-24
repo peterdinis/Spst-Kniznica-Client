@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
 
+/* TODO: Later add react-hook-form and yup to all app forms */
 type FormData = {
   email: string,
   password: string,
