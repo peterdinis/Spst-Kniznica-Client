@@ -1,12 +1,6 @@
 import DateTimePicker from "../shared/DateTimePicker";
-import {useNavigate} from "react-router-dom";
 
 function Hero() {
-  const navigate = useNavigate();
-
-  const navigateToBooks = () => {
-    navigate("/books");
-  }
   return (
     <div className="pt-32 lg:flex items-center relative z-10 container mx-auto">
         <div className="w-full lg:w-1/2 h-full lg:pr-10 xl:pr-0">
@@ -31,7 +25,9 @@ function Hero() {
             <button className="test bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
               <a href="https://www.spsbj.sk/">Školská stránka</a>
             </button>
-            <button onClick={navigateToBooks} className="newTest ml-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Všetky knihy</button>
+            <button className="newTest ml-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+              <a href="/books">Všetky knihy</a>
+            </button>
           </div>
         </div>
       </div>
