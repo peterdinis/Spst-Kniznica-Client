@@ -9,7 +9,6 @@
     "@cypress/webpack-dev-server": "^2.0.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@faker-js/faker": "^7.3.0",
     "@headlessui/react": "^1.6.5",
     "@heroicons/react": "^1.0.6",
     "@hookform/resolvers": "^2.9.6",
