@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);

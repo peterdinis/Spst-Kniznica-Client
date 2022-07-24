@@ -1,6 +1,6 @@
-import HomeIcon from "@material-ui/icons/Home";
-import SchoolIcon from "@material-ui/icons/School";
-import ThumbUpIcon from "@material-ui/icons/ThumbUp";
+import HomeIcon from '@mui/icons-material/Home';
+import SchoolIcon from '@mui/icons-material/School';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 function Services() {
   return (
