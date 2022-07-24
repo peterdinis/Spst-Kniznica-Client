@@ -3,14 +3,18 @@ import {useMutation} from "react-query";
 import * as api from "../../api/mutations/authMutations";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
-import { FormEvent, useState, ChangeEvent } from "react";
-import {RegisterUserI} from "../../api/interfaces/IAuth";
+import { ChangeEvent } from "react";
+import { useForm } from "react-hook-form";
+
+type FormData = {
+  email: string,
+  password: string,
+  firstName: string,
+  lastName: string,
+}
 
 export default function RegisterUser() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const { register, handleSubmit} = useForm<FormData>();
 
   const navigate = useNavigate();
 
@@ -23,28 +27,13 @@ export default function RegisterUser() {
       toast.error("Problém pri regístrácií");
     }
   });
-
-  const data: RegisterUserI = {
-    email,
-    password,
-    firstName,
-    lastName,
-  }
-
-  const registerUser = (e: FormEvent) => {
-    e.preventDefault();
-    mutation.mutate(data);
-    setEmail("");
-    setPassword("");
-    setFirstName("");
-    setLastName("");
-    navigate("/student/login");
-  }
-
   return (
     <>
      <Header name="Registrácia" />
-      <form onSubmit={registerUser}>
+      <form onSubmit={handleSubmit((data: FormData) => {
+          mutation.mutate(data)
+          navigate("/student/login")
+      })}>
         <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
         <div className="mb-4">
             <label
