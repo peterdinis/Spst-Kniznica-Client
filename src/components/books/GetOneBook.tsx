@@ -2,7 +2,6 @@ import Header from "../shared/Header";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import Missing from "../shared/Missing";
-import LoadingComponent from "../shared/LoadingComponent";
 import "./Books.css";
 import { Link } from "react-router-dom";
 import * as api from "../../api/queries/bookQueries";
@@ -14,7 +13,7 @@ function GetOneBook() {
     <>
       <Header name="Detail knihy" />
       {data === undefined || null ? (
-        <LoadingComponent />
+        <div>Oprav ma</div>
       ) : (
         <section className="mt-2 text-gray-700 body-font overflow-hidden bg-white">
           <div className="container px-5 py-12 mx-auto">

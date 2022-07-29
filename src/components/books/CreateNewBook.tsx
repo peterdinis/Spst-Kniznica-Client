@@ -17,6 +17,7 @@ function CreateNewBook() {
   const [year, setYear] = useState(0);
   const [pages, setPages] = useState(0);
   const [avaiable, setAvaiable] = useState(true);
+  const [categoryId, setCategoryId] = useState(0);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setAvaiable(event.target.checked);
@@ -30,7 +31,8 @@ function CreateNewBook() {
     image,
     year,
     pages,
-    avaiable
+    avaiable,
+    categoryId
   };
 
   const onCreateBook = (e: FormEvent) => {
@@ -42,6 +44,7 @@ function CreateNewBook() {
     setImage("");
     setPages(0);
     setYear(0);
+    setCategoryId(categoryId);
     setAvaiable(false)
   };
 
@@ -108,6 +111,15 @@ function CreateNewBook() {
           
           <br />
           </div>
+          <TextField
+            className="bookForm"
+            placeholder="Číslo kategórie"
+            value={categoryId}
+            type="number"
+            onChange={(e: any) => setCategoryId(e.target.value)}
+          />
+          
+          <br />
           <BaseButton type="submit" name="Vytvor novú knihu" />
         </form>
       </div>

@@ -7,6 +7,7 @@ export interface IBook {
     year: number;
     pages: number;
     avaiable: boolean;
+    categoryId: number;
 } 
 
 export type SearchVal = Pick<IBook, 'name' |'author'>;
