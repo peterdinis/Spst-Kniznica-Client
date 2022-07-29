@@ -2,14 +2,11 @@ import { useState, ChangeEvent} from "react";
 import Header from "../shared/Header";
 import {
   useQuery,
-  useIsFetching,
   useQueryErrorResetBoundary,
 } from "react-query";
 import { IBook, SearchVal } from "../../api/interfaces/IBook";
 import ScrollToTop from "../../hooks/useScroll";
 import * as api from "../../api/queries/bookQueries";
-import LoadingComponent from "../shared/LoadingComponent";
-import WarningComponent from "../shared/WarningComponent";
 import { style } from "./imageStyleHelper";
 import { Link } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
@@ -17,22 +14,10 @@ import Button from '@mui/material/Button';
 import FallbackRender from "../shared/FallbackRender";
 
 function DisplayAllBooks() {
-  const isFetching = useIsFetching();
   const { reset } = useQueryErrorResetBoundary();
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const { data, isLoading, isError } = useQuery("books", api.getBooks);
+  const { data} = useQuery("books", api.getBooks);
 
-  if (isLoading) {
-    return <LoadingComponent message="Načítavam" />;
-  }
-
-  if (isError) {
-    return <WarningComponent message="Nastala chyba" />;
-  }
-
-  if (isFetching) {
-    return <LoadingComponent message="Načítavam dáta" />;
-  }
 
   const valChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
