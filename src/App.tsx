@@ -20,7 +20,7 @@ export function App() {
         <Route path="/createbook" element={<CreateNewBook />} />
         <Route path="/book/:id" element={<BookDetail />} />
         <Route path="/categories" element={<AllCategories />} />
-        <Route path="/category:id" element={<GetOneCategory />} />
+        <Route path="/category/:id" element={<GetOneCategory />} />
         <Route path="/createcategory" element={<CreateCategory />} />
         <Route path="/student/register" element={<Registerpage />} />
         <Route path="/student/login" element={<Loginpage  />} />

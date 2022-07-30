@@ -1,8 +1,10 @@
-import React from 'react'
+import { CategoryDetail } from '../../components/categories'
 
 function GetOneCategory() {
   return (
-    <div>GetOneCategory</div>
+    <>
+      <CategoryDetail />
+    </>
   )
 }
 
