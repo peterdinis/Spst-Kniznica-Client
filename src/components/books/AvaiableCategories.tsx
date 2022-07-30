@@ -9,8 +9,8 @@ import {style} from "./styles";
 
 interface ICategoryModal {
   children?: ReactNode;
+  buttonName: string;
   modalHeader: string;
-  modalText: string;
 }
 
 export default function AvaiableCategories(props: ICategoryModal) {
@@ -20,7 +20,7 @@ export default function AvaiableCategories(props: ICategoryModal) {
   
     return (
       <>
-        <Button onClick={handleOpen}>Open modal</Button>
+        <Button onClick={handleOpen}>{props.buttonName}</Button>
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
@@ -36,9 +36,6 @@ export default function AvaiableCategories(props: ICategoryModal) {
             <Box sx={style}>
               <Typography id="transition-modal-title" variant="h6" component="h2">
                 {props.modalHeader}
-              </Typography>
-              <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                {props.modalText}
               </Typography>
               {props.children}
             </Box>
