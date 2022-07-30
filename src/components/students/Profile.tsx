@@ -5,6 +5,9 @@ import * as api from "../../api/queries/authQueries";
 
 function Profile() {
   const navigate = useNavigate();
+  let token: any;
+  const {data} = useQuery(["studentProfile", token], () =>api.me);
+  console.log(data);
   const onLogout = async () => {
     await logoutUser();
     navigate("/student/login");
