@@ -1,8 +1,10 @@
-import React from 'react'
+import { ChatingRoom } from '../../components/admin'
 
 function AdminTalk() {
   return (
-    <div>AdminTalk</div>
+    <>
+        <ChatingRoom />
+    </>
   )
 }
 

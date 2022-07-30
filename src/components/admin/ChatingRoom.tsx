@@ -1,4 +1,7 @@
-import React from 'react'
+import { useState, useEffect, useRef } from 'react';
+import io from 'socket.io-client';
+
+const socket = io();
 
 function ChatingRoom() {
   return (

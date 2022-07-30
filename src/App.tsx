@@ -4,7 +4,7 @@ import {Homepage, Aboutpage, AdminChat} from "./pages/index";
 import { AllBooks, BookDetail, CreateNewBook } from "./pages/books";
 import {AllCategories, CreateCategory } from "./pages/categories";
 import {Registerpage, Loginpage, Profilepage} from "./pages/students/index"
-import {AdminLoginpage, AdminRegisterpage, AdminProfilepage, ApplicationStatus} from "./pages/admin/index";
+import {AdminLoginpage, AdminRegisterpage, AdminProfilepage, ApplicationStatus, AdminTalk} from "./pages/admin/index";
 import { BorrowingPage, ReturnBookPage } from './pages/borrowing';
 import {TeacherLoginPage, TeacherRegisterPage, TeacherProfile} from "./pages/teachers"
 
@@ -29,6 +29,7 @@ export function App() {
         <Route path="/admin/profile" element={<AdminProfilepage />} />
         <Route path="/admin/app/status" element={<ApplicationStatus />} />
         <Route path="/admin/chat" element={<AdminChat />} />
+        <Route path="/admin/talk" element={<AdminTalk />} /> 
         <Route path="/borrow" element={<BorrowingPage />} />
         <Route path="/book/return" element={<ReturnBookPage />} />
         <Route path="/teacher/login" element={<TeacherLoginPage/> } />
