@@ -2,7 +2,7 @@ import { Navbar } from './components/shared';
 import { Route, Routes } from 'react-router-dom';
 import {Homepage, Aboutpage, AdminChat} from "./pages/index";
 import { AllBooks, BookDetail, CreateNewBook } from "./pages/books";
-import {AllCategories, CreateCategory } from "./pages/categories";
+import {AllCategories, CreateCategory, GetOneCategory } from "./pages/categories";
 import {Registerpage, Loginpage, Profilepage} from "./pages/students/index"
 import {AdminLoginpage, AdminRegisterpage, AdminProfilepage, ApplicationStatus, AdminTalk} from "./pages/admin/index";
 import { BorrowingPage, ReturnBookPage } from './pages/borrowing';
@@ -20,6 +20,7 @@ export function App() {
         <Route path="/createbook" element={<CreateNewBook />} />
         <Route path="/book/:id" element={<BookDetail />} />
         <Route path="/categories" element={<AllCategories />} />
+        <Route path="/category:id" element={<GetOneCategory />} />
         <Route path="/createcategory" element={<CreateCategory />} />
         <Route path="/student/register" element={<Registerpage />} />
         <Route path="/student/login" element={<Loginpage  />} />
