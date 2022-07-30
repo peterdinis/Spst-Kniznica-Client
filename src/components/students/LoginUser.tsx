@@ -2,13 +2,26 @@ import { useMutation } from "react-query";
 import * as api from "../../api/mutations/authMutations";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { FormEvent, useState, ChangeEvent } from "react";
 import Header from "../shared/Header";
-import { LoginUserI } from "../../api/interfaces/IAuth";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from '@hookform/resolvers/yup';
+
+type FormData = {
+  email: string,
+  password: string
+}
+
+const schema = yup.object({
+  email: yup.string().required(),
+  password: yup.string().required(),
+
+}).required();
 
 function LoginUser() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { register, handleSubmit} = useForm<FormData>({
+    resolver: yupResolver(schema)
+  });
   const navigate = useNavigate();
 
   const mutation = useMutation(api.loginUser, {
@@ -21,23 +34,13 @@ function LoginUser() {
     },
   });
 
-  const data: LoginUserI = {
-    email,
-    password
-  }
-
-  const loginUser = (e: FormEvent) => {
-    e.preventDefault();
-    mutation.mutate(data);
-    setEmail("");
-    setPassword("");
-    navigate("/student/profile");
-  }
-
   return (
     <>
       <Header name="Prihlásenie" />
-      <form onSubmit={loginUser}>
+      <form onSubmit={handleSubmit((data: FormData) => {
+        mutation.mutate(data)
+        navigate("/student/profile")
+      })}>
         <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
           <div className="mb-4">
             <label
@@ -53,8 +56,9 @@ function LoginUser() {
               placeholder="Email"
               required
               autoFocus
-              value={email}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+              {...register("email", {
+                required: true
+              })}
             />
           </div>
           <div className="mb-6">
@@ -69,8 +73,9 @@ function LoginUser() {
               id="password"
               type="password"
               placeholder="*****************"
-              value={password}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+              {...register("password", {
+                required: true
+              })}
             />
           </div>
           <div>

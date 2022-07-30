@@ -1,4 +1,3 @@
-import { FormEvent, useState, ChangeEvent } from "react";
 import { useMutation } from "react-query";
 import * as api from "../../api/mutations/categoryMutations"
 import "./Category.css";
@@ -6,41 +5,48 @@ import {FormWrapper} from "./Categories.styled";
 import {TextField} from "@mui/material";
 import Header from "../shared/Header";
 import BaseButton from "../shared/BaseButton";
-import { ICategory } from "../../api/interfaces/ICategory";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from '@hookform/resolvers/yup';
+
+
+type FormData = {
+  name: string,
+  description: string,
+}
+
+const schema = yup.object({
+  name: yup.string().required(),
+  description: yup.string().required()
+
+}).required();
 
 function CreateNewCategory() {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const { register, handleSubmit} = useForm<FormData>({
+    resolver: yupResolver(schema)
+  });
+
   const mutation = useMutation(api.addNewCategory);
 
-
-  const data: ICategory = {
-    name,
-    description,
-  };
-
-  const formHandler = (e: FormEvent) => {
-    e.preventDefault();
-    mutation.mutate(data);
-    setName("");
-    setDescription("");
-  };
-  
   return (
     <FormWrapper>
       <Header name="Tvorba novej kategórie" />
       <FormWrapper>
-        <form onSubmit={formHandler}>
+        <form onSubmit={handleSubmit((data: FormData) => {
+          mutation.mutate(data);
+        })}>
           <TextField
-            value={name}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+            {...register("name", {
+              required: true
+            })}
             className="categoryorm"
             placeholder="Name"
           />
           <br />
           <TextField
-            value={description}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)}
+            {...register("description", {
+              required: true
+            })}
             className="categoryorm"
             placeholder="Popis kategórie"
           />
