@@ -66,24 +66,6 @@ function GetOneBook() {
                     <span className="font-bold">Author</span>: {data.author}
                   </p>
                 )}
-
-                {data.status === null || data.status === "" ? (
-                  <div>
-                    <Missing name="Status chýba" />
-                  </div>
-                ) : (
-                  <>
-                    {data.avaiable === true ? (
-                      <p className="text-2xl mt-3 font-light leading-relaxed  mb-4 text-green-800">
-                        <span className="font-bold">Kniha je dostupná</span>
-                      </p>
-                    ) : (
-                      <p className="text-2xl mt-3 font-light leading-relaxed  mb-4 text-red-800">
-                        <span className="font-bold">Kniha nie je dostupná</span>
-                      </p>
-                    )}
-                  </>
-                )}
                 {data.year === null || data.year === "" ? (
                   <div>
                     <Missing name="Rok vydania chýba" />
