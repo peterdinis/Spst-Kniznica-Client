@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 import Button from '@mui/material/Button';
 import FallbackRender from "../shared/FallbackRender";
-import BookBadge from "./BookBadge";
 
 function DisplayAllBooks() {
   const { reset } = useQueryErrorResetBoundary();
@@ -23,7 +22,6 @@ function DisplayAllBooks() {
   const valChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
-//TODO: Add condition for rendering dynamicly this badge
   return (
     <>
       <ErrorBoundary
@@ -87,7 +85,7 @@ function DisplayAllBooks() {
                         </span>
                         <h3 className="text-2xl text-center text-gray-800">
                           
-                          {item.name} - {item.author} <BookBadge name="Dostupná" />
+                          {item.name} - {item.author} 
                         </h3>
                         <div className="text-center mt-4">
                           <Link
