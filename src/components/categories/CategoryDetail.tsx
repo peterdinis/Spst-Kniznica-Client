@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import Missing from "../shared/Missing";
 import * as api from "../../api/queries/categoryQueries";
-import { WarningComponent } from "../shared";
-
 
 function CategoryDetail() {
   const { id } = useParams();
@@ -39,6 +37,16 @@ function CategoryDetail() {
                     <span className="font-bold">Krátke info</span>:{" "}
                     {data.description}
                   </p>
+                )}
+                {/* TODO: Update me */}
+                {data.books === null ? (
+                  <>
+                    <Missing name="Kategória nemá žiadne knihy" />
+                  </>
+                ): (
+                  <>
+                    {data.books && data.books.map((i: any) => i.name)}
+                  </>
                 )}
               </div>
             </div>
